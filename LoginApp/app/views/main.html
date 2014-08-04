@@ -1,0 +1,42 @@
+<div class="container-fluid card animate">
+  <h3 class="name">{{user.name}}</h3>
+    <tabset justified="true">
+        <tab heading="Report Types" >
+          <div class="contianer cardInside">
+            <div class="row">
+              <div class="col-md-6 averages">
+                <div class="reportDetail">
+                  <text class="averageTitle">Reports:</text><br>
+                  {{totalOf(user.report_types, "Report")}}
+                </div>
+              </div>
+              <div class="col-md-6 averages">
+                <div class="reportDetail">
+                  <text class="averageTitle">Dashboards:</text><br>
+                  {{totalOf(user.report_types, "Dashboard")}}
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 averages">
+                <div class="reportDetail">
+                  <text class="averageTitle">User Saved Reports:</text><br>
+                  {{totalOf(user.report_types, "User saved report")}}
+                </div>
+              </div>
+              <div class="col-md-6 averages">
+                <div class="reportDetail">
+                  <text class="averageTitle">User Saved Dashboards:</text><br>
+                  {{totalOf(user.report_types, "User saved dashbord")}}
+                </div>
+              </div>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Visualize" class='graphTab'>
+          <div class="contianer-fluid monthChart cardInside">
+            <d3-bars month-data={{user.month}}></d3-bars>
+          </div>
+        </tab>
+      </tabset>
+</div>
